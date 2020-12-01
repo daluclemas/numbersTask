@@ -18,11 +18,18 @@ searchInput.addEventListener('keydown', e => {
 
 const getApi = async() => {
 
-    let fetchApi = await fetch('https://emajency.com/js/numbers.json');
-    data = await fetchApi.json();
-    console.log(data);
+    try {
 
-    display(data);
+        let fetchApi = await fetch('https://emajency.com/js/numbers.json');
+        data = await fetchApi.json();
+        console.log(data);
+
+        display(data);
+
+    } catch (err) {
+        card.innerHTML = err.message;
+    }
+
 };
 
 
